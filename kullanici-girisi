@@ -1,0 +1,49 @@
+print("""
+************************
+Kullanıcı Girişi Programı
+************************
+""")
+
+sys_kullanıcıadı = "burakbaba"
+sys_password = "e47f4f5f"
+giriş_hakkı = 3
+parola_sıfırlama = "Parolanızı Altta Verilen Linkten Sıfırlayınız :)\nwww.burakbabaninsitesi.com.tr/resetpassword"
+kullanıcı_adı_sıfırlama = "Kullanıcı Adınızı Altta Verilen Linkten Sıfırlayınız :)\nwww.burakbabaninsitesi.com/resetusername"
+while True:
+    kullanıcı_adı = input("\nKullanıcı Adı : ")
+    parola = input("Parola : ")
+    if(kullanıcı_adı != sys_kullanıcıadı and parola == sys_password):
+        print("\nKullanıcı Adınız Hatalı...")
+        giriş_hakkı -= 1
+    elif (kullanıcı_adı == sys_kullanıcıadı and parola != sys_password):
+        print("\nParola Hatalı...")
+        giriş_hakkı -= 1
+    elif (kullanıcı_adı != sys_kullanıcıadı and parola != sys_password):
+        print("Kullanıcı Adı ve Parola Hatalı...\nParolanızı Altta Verilen Linkten Sıfırlayınız :)\nwww.burakbabaninsitesi.com.tr/resetpassword\nKullanıcı Adınızı Altta Verilen Linkten Sıfırlayınız :)\nwww.burakbabaninsitesi.com/resetusername")
+        giriş_hakkı -= 1
+    else:
+        print("Sisteme Başarı ile Giriş Yapıldı :)")
+        break
+    if (kullanıcı_adı != sys_kullanıcıadı and parola == sys_password):
+        print("\nKullanıcı Adınızı Mı Unuttunuz ? ")
+        pswd = input("\nEvet / Hayır: ")
+        if (pswd == "Evet" or pswd == "evet" or pswd == "Yes" or pswd == "yes"):
+            print(kullanıcı_adı_sıfırlama)
+            break
+        else:
+            print()
+
+    if (kullanıcı_adı == sys_kullanıcıadı and parola != sys_password):
+        print("\nParolanızı Mı Unuttunuz ? ")
+        kullan = input("\nEvet / Hayır: ")
+        if (kullan == "evet" or kullan == "Evet" or kullan == "Yes" or kullan == "yes"):
+            print(parola_sıfırlama)
+            break
+        else:
+            print("Tekrar Deneyiniz...")
+    else:
+        print("Tekrar Deneyiniz")
+
+    if giriş_hakkı == 0:
+        print("\nGüvenlik Amacıyla Sitemizden Uzaklaştırılıyorsunuz :(")
+        break
